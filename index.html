@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Currículo - Ingrid Farias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <aside class="editor-panel">
+            <h1 class="main-title">Editor de Currículo</h1>
+            <button id="printBtn" class="action-button">Imprimir / Salvar PDF</button>
+
+            <section class="editor-section">
+                <h2>1. Dados Pessoais</h2>
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="inputName" placeholder="Ex: Ingrid Farias">
+                </div>
+                <div class="input-group">
+                    <label>Nacionalidade</label>
+                    <input type="text" id="inputNationality" placeholder="Ex: Brasileiro(a)">
+                </div>
+                <div class="input-group">
+                    <label>Cidade/Estado</label>
+                    <input type="text" id="inputAddress" placeholder="Ex: São Paulo">
+                </div>
+                <div class="input-group">
+                    <label>Celular</label>
+                    <input type="text" id="inputPhone" placeholder="Ex: (00) 0 0000-0000">
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" id="inputEmail" placeholder="Ex: email@gmail.com">
+                </div>
+                <div class="input-group">
+                    <label>LinkedIn (Link)</label>
+                    <input type="url" id="inputLinkedin" placeholder="Ex: linkedin.com/in/perfil">
+                </div>
+            </section>
+
+            <section class="editor-section">
+                <h2>2. Objetivo / Vaga</h2>
+                <div class="input-group">
+                    <input type="text" id="inputJobTitle" placeholder="Ex: Desenvolvedor(a) Front-End">
+                </div>
+            </section>
+
+            <section class="editor-section">
+                <h2>3. Experiência e Qualificações</h2>
+                <div class="input-group">
+                    <label>Resumo (Pressione Enter para tópicos)</label>
+                    <textarea id="inputSummary"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Formação Acadêmica</label>
+                    <textarea id="inputEducation"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Idiomas</label>
+                    <textarea id="inputLanguages"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Informações Adicionais</label>
+                    <textarea id="inputAdditional"></textarea>
+                </div>
+            </section>
+        </aside>
+
+        <main class="preview-panel">
+            <div id="document-wrapper">
+                <div id="page1" class="a4-page active-page">
+                    <div class="sheet-content">
+                        <header class="resume-header">
+                            <h1 id="displayName" class="candidate-name">Seu Nome</h1>
+                            <div class="contact-info">
+                                <span id="displayNationality">Nacionalidade</span> | 
+                                <span id="displayAddress">Cidade-Estado</span> | 
+                                <strong>Celular:</strong> <span id="displayPhone">(00) 0 0000-0000</span>
+                                <br>
+                                <strong>E-mail:</strong> <span id="displayEmail">email@exemplo.com</span> | 
+                                <strong>LinkedIn:</strong> <span id="displayLinkedin">link</span>
+                            </div>
+                        </header>
+
+                        <div class="job-title-container">
+                            <h2 id="displayJobTitle" class="job-title-text">TÍTULO PROFISSIONAL</h2>
+                        </div>
+
+                        <div id="mainResumeContent" class="resume-body">
+                            <section class="content-section">
+                                <h3 class="section-title">Resumo de Qualificações:</h3>
+                                <ul id="displaySummaryList" class="list-style"></ul>
+                            </section>
+
+                            <section class="content-section">
+                                <h3 class="section-title">Formação Acadêmica:</h3>
+                                <ul id="displayEducationList" class="list-style"></ul>
+                            </section>
+
+                            <section class="content-section">
+                                <h3 class="section-title">Idiomas:</h3>
+                                <ul id="displayLanguagesList" class="list-style"></ul>
+                            </section>
+
+                            <section class="content-section">
+                                <h3 class="section-title">Ferramentas e Outras Informações:</h3>
+                                <ul id="displayAdditionalList" class="list-style"></ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

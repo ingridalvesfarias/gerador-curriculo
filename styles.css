@@ -1,0 +1,327 @@
+/* 
+GERADOR DE CURRÍCULO PROFISSIONAL 
+Desenvolvedora: Ingrid Farias
+*/
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+:root {
+    --dark-bg: #121212;
+    --editor-bg: #1e1e1e;
+    --accent: #00adb5;
+    --text-light: #e0e0e0;
+    --input-bg: #2c2c2c;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* LAYOUT PRINCIPAL (Responsivo) */
+.main-container {
+    display: flex;
+    height: 100vh;
+}
+
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+/* PAINEL DO EDITOR (ESQUERDA) */
+.editor-panel {
+    width: 35%;
+    background: var(--editor-bg);
+    padding: 25px;
+    border-right: 1px solid #333;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media (max-width: 1024px) {
+    .editor-panel {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+}
+
+.main-title {
+    font-size: 1.4rem;
+    color: var(--accent);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.editor-section h2 {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+input,
+textarea {
+    background: var(--input-bg);
+    border: 1px solid #444;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    width: 100%;
+    transition: border 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.action-button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+}
+
+.action-button:hover {
+    opacity: 0.9;
+}
+
+/* PAINEL DE VISUALIZAÇÃO (DIREITA) */
+.preview-panel {
+    width: 65%;
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+    .preview-panel {
+        width: 100%;
+        padding: 20px 10px;
+    }
+}
+
+/* ESTILIZAÇÃO DA FOLHA A4 (O CURRÍCULO) */
+.a4-page {
+    background: white;
+    color: #222;
+    width: 210mm;
+    min-height: 297mm;
+    height: auto;
+    padding: 25mm;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 50px;
+    display: block;
+    position: relative;
+}
+
+/* Estilização Interna do Currículo */
+.candidate-name {
+    font-size: 24pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.contact-info {
+    font-size: 10pt;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.job-title-container {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.job-title-text {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #222;
+}
+
+.section-title {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #000;
+    border-bottom: 2px solid #222;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+}
+
+.list-style {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.list-style li {
+    font-size: 10.5pt;
+    margin-bottom: 8px;
+    text-align: justify;
+}
+
+/* CONFIGURAÇÃO DE IMPRESSÃO (PDF) */
+@media print {
+    body {
+        background: white !important;
+    }
+
+    .editor-panel {
+        display: none !important;
+    }
+
+    .preview-panel {
+        background: white !important;
+        width: 100% !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    .a4-page {
+        box-shadow: none !important;
+        margin: 0 !important;
+        width: 100% !important;
+        padding: 25mm !important;
+        page-break-after: auto;
+        /* Cria novas páginas automaticamente */
+    }
+
+    li,
+    .section-title,
+    .candidate-name,
+    .job-title-container {
+        page-break-inside: avoid;
+    }
+}
+
+/* 
+        ESTILO RESPONSIVO
+Focado em Celular, Tablet e Notebook
+*/
+
+/* Ajuste do Container Principal */
+.main-container {
+    display: flex;
+    flex-direction: row; 
+    height: 100vh;
+    width: 100%;
+}
+
+/* CONFIGURAÇÃO PARA CELULAR (Telas menores que 768px) */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; 
+        height: auto;
+    }
+
+    .editor-panel {
+        width: 100% !important;
+        height: auto !important;
+        border-right: none;
+        border-bottom: 2px solid var(--accent);
+        padding: 15px;
+    }
+
+    .preview-panel {
+        width: 100% !important;
+        padding: 10px !important;
+        background-color: var(--dark-bg);
+    }
+
+    /* Ajuste da Folha A4 para caber na tela do celular */
+    .a4-page {
+        width: 100% !important; 
+        min-height: auto !important;
+        padding: 15mm !important; 
+        margin-bottom: 20px;
+        transform: scale(1); 
+        font-size: 12px; 
+    }
+
+    .candidate-name {
+        font-size: 18pt !important;
+    }
+}
+
+/* AJUSTES PARA NOTEBOOK */
+@media (min-width: 769px) {
+    .editor-panel {
+        width: 35%;
+        overflow-y: auto;
+    }
+
+    .preview-panel {
+        width: 65%;
+        overflow-y: auto;
+    }
+}
+
+@media print {
+    .main-container {
+        display: block !important;
+    }
+    .editor-panel {
+        display: none !important;
+    }
+    .preview-panel {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    .a4-page {
+        width: 210mm !important; 
+        margin: 0 !important;
+        box-shadow: none !important;
+    }
+}
