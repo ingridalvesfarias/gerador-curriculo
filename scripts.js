@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'inputPhone': { display: 'displayPhone', default: '(00) 0 0000-0000' },
         'inputEmail': { display: 'displayEmail', default: 'email@exemplo.com' },
         'inputLinkedin': { display: 'displayLinkedin', default: 'linkedin.com/in/perfil' },
+        'inputGithub': { display: 'displayGithub', default: 'github.com/username' },
         'inputJobTitle': { display: 'displayJobTitle', default: 'TÍTULO PROFISSIONAL' }
     };
 
