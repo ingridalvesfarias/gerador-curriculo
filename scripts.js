@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'inputSummary': 'displaySummaryList',
         'inputEducation': 'displayEducationList',
         'inputLanguages': 'displayLanguagesList',
-        'inputAdditional': 'displayAdditionalList'
+        'inputExperience': 'displayExperienceList',
+        'inputTraining': 'displayTrainingList'
     };
 
     function setupTextFields() {
